@@ -1,3 +1,22 @@
+// export const actions = {
+//     nuxtServerInit({commit}) {
+//         commit("setUsers", [
+//             {
+//                 id: 0,
+//                 name: "ayumin",
+//                 desc: "pokemon streamer"
+//             }
+//         ])
+//         console.log("nuxtServerInit")
+//     }
+// }
+
+// export const mutations = {
+//     setUsers(state, users) {
+//         state.users = users
+//     }
+// }
+
 export const state = () => ({
     users: [
         {
