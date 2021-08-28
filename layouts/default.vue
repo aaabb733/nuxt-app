@@ -6,14 +6,3 @@
         <Nuxt class="main" />
     </div>
 </template>
-
-<style scoped>
-/* .content {
-    margin: 20px;
-} */
-/* .main {
-    margin-top: 20px;
-    padding: 1px 40px;
-    background-color: #f3f3f3;
-} */
-</style>
