@@ -2,9 +2,15 @@ export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
 
+  serverMiddleware: {
+    "/api": "~/serverMiddleware/api"
+  },
+
+  loading: false,
+
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'yg-nuxt',
+    title: 'nuxt-app',
     htmlAttrs: {
       lang: 'en'
     },
@@ -38,6 +44,7 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    "~/modules/ignoreDev.js"
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -45,5 +52,5 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-  }
+  },
 }
