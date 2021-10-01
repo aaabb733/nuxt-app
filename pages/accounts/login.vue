@@ -33,12 +33,6 @@
     </div>
 </template>
 
-<style scoped>
-input {
-    max-width: 20rem;
-}
-</style>
-
 <script>
 export default {
     data() {
