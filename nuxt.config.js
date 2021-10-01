@@ -1,18 +1,10 @@
 export default {
-  // Target: https://go.nuxtjs.dev/config-target
-  target: 'static',
-
-  serverMiddleware: {
-    "/api": "~/serverMiddleware/api"
-  },
-
-  loading: false,
-
+  ssr: false,
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'nuxt-app',
     htmlAttrs: {
-      lang: 'en'
+      lang: 'ja'
     },
     meta: [
       { charset: 'utf-8' },
@@ -31,6 +23,9 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    "plugins/db.js",
+    "plugins/auth.js",
+    "plugins/post.js"
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -42,13 +37,7 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    // https://go.nuxtjs.dev/axios
-    '@nuxtjs/axios',
-    "~/modules/ignoreDev.js"
   ],
-
-  // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
