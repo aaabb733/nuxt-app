@@ -24,7 +24,7 @@
   <button @click="$nuxt.refresh">Reload posts</button>
 
   <!-- posts list -->
-  <ul>
+  <ul v-if="posts.length > 0">
     <li v-for="post in posts" :key="post._id">
       <n-link :to="`/${post.author}`">{{post.author}}</n-link>
       <span>[{{post.date.toLocaleString()}}]</span>
@@ -32,6 +32,7 @@
       <p style="word-break: break-all;">{{post.content}}</p>
     </li>
   </ul>
+  <div v-else>there are no posts</div>
 
   <!-- post form -->
   <form v-if="$store.state.user" @submit.prevent="post">
@@ -46,6 +47,12 @@
 
 </div>
 </template>
+
+<style scoped>
+* {
+  box-sizing: border-box;
+}
+</style>
 
 <script>
 export default {
