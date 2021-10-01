@@ -1,5 +1,6 @@
 <template>
     <div>
+        <!-- Header nav -->
         <ul>
             <li>
                 <n-link to="/">Home</n-link>
@@ -10,19 +11,10 @@
         </ul>
         <h1>{{$route.params.username}}</h1>
 
-        <p>{{user.profile}}</p>
+        <p v-if="user.profile">{{user.profile}}</p>
 
-        <!-- posts -->
-        <ul v-if="posts.length > 0">
-            <li v-for="post in posts" :key="post._id">
-                <p style="word-break: break-all;">
-                {{post.content}} [{{post.date.toLocaleString()}}]
-                </p>
-            </li>
-        </ul>
-        <div v-else>
-            there are no posts
-        </div>
+        <Posts :posts="posts"/>
+
     </div>
 </template>
 

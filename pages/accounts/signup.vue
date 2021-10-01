@@ -13,11 +13,15 @@
         <form @submit.prevent="signUp">
             <div>
                 <label for="input-identifier">Email or username</label>
+            </div>
+            <div>
                 <input placeholder="email or username" v-model="identifier" type="text" name="identifier" id="input-identifier">
             </div>
             <div style="color: red;">{{identifierError}}</div>
             <div>
                 <label for="input-password">Password</label>
+            </div>
+            <div>
                 <input placeholder="password" v-model="password" type="password" name="password" id="input-password">
             </div>
             <div style="color: red;">{{passwordError}}</div>
@@ -30,9 +34,8 @@
 </template>
 
 <style scoped>
-label {
-    font-weight: bold;
-    display: table;
+input {
+    max-width: 20rem;
 }
 </style>
 

@@ -1,0 +1,22 @@
+<template>
+<div v-if="displayUsername">
+    <n-link v-if="displayUsername" :to="`/${post.author}`">{{post.author}}</n-link>
+    <span>[{{post.date.toLocaleString()}}]</span>
+    <button @click="$emit('deletePost', post._id)" v-if="$store.state.user && $store.state.user.identifier === post.author">Delete</button>
+    <p style="word-break: break-all;">{{post.content}}</p>
+</div>
+<div v-else>
+    <p style="word-break: break-all;">
+        {{post.content}} [{{post.date.toLocaleString()}}]
+    </p>
+</div>
+</template>
+
+<script>
+export default {
+    props: {
+        post: Object,
+        displayUsername: Boolean
+    }
+}
+</script>

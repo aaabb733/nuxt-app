@@ -1,0 +1,17 @@
+* {
+    box-sizing: border-box;
+}
+
+textarea {
+    width: 100%;
+    max-width: 50rem;
+}
+
+label {
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    max-width: 40rem;
+}
