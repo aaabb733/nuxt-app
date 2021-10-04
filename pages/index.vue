@@ -28,8 +28,6 @@
   <!-- Post Form -->
   <PostForm />
 
-  <strong>https://www.overleaf.com/9228136449bfzywjzsgjqn</strong>
-
   <!-- Modal -->
   <div v-if="modal" @click.self="closeModal();" class="modal">
     <div class="modal-content">
