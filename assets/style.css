@@ -2,6 +2,24 @@
     box-sizing: border-box;
 }
 
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.border {
+    border: 1px solid black;
+}
+
+.border-y {
+    border-left-width: 0px;
+    border-right-width: 0px;
+}
+
+.divide-y > *+* {
+    border-top: 1px solid black;
+}
+
 textarea {
     width: 100%;
     max-width: 50rem;

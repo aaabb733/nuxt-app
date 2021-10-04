@@ -11,7 +11,7 @@
         <ul v-if="users.length > 0">
             <li v-for="user in users" :key="user.identifier">
                 <n-link :to="`/${user.identifier}`">{{user.identifier}}</n-link>
-                <p v-if="user.profile">{{user.profile}}</p>
+                <p>{{user.profile || "プロフィールはありません"}}</p>
             </li>
         </ul>
         <h1 v-else>there are no users</h1>

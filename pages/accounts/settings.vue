@@ -5,7 +5,7 @@
             <n-link to="/">Home</n-link>
         </li>
     </ul>
-    <h1>settings</h1>
+    <h1>Settings</h1>
     <form @submit.prevent="saveSettings">
         <div>
             <label for="">Username</label>
