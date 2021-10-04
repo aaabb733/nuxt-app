@@ -23,19 +23,21 @@
   <button @click="$nuxt.refresh">Reload posts</button>
 
   <!-- Posts -->
-  <Posts @deletePost="modal=true; deleteId = $event;" :posts=posts display-username />
+  <Posts @deletePost="openModal(); deleteId = $event;" :posts=posts display-username />
 
   <!-- Post Form -->
   <PostForm />
 
+  <strong>https://www.overleaf.com/9228136449bfzywjzsgjqn</strong>
+
   <!-- Modal -->
-  <div v-if="modal" @click.self="modal=false;" class="modal">
+  <div v-if="modal" @click.self="closeModal();" class="modal">
     <div class="modal-content">
       <strong>Really you want to delete this post?</strong>
       <Post style="margin: 1rem 0;" :post="posts.find(post => post._id === deleteId)" />
       <div>
-        <button @click="modal=false;">Cancel</button>
-        <button @click="modal=false; deletePost(deleteId)">OK</button>
+        <button @click="closeModal();">Cancel</button>
+        <button @click="closeModal(); deletePost(deleteId)">OK</button>
       </div>
     </div>
   </div>
@@ -66,11 +68,15 @@
 </style>
 
 <script>
+const ua = window.navigator.userAgent.toLowerCase()
+const isIOS = ua.indexOf("iphone") > -1 || ua.indexOf("ipad") > -1 || ua.indexOf("macintosh") > -1 && "ontouched" in document
+
 export default {
   data() {
     return {
       modal: false,
       deleteId: null,
+      scrollY: 0,
     }
   },
   async asyncData({$posts}) {
@@ -87,13 +93,27 @@ export default {
     deletePost(_id) {
       this.$posts.deletePost(_id)
       this.$nuxt.refresh()
-    }
-  },
-  head() {
-    return {
-      title: "Home",
-      bodyAttrs: {
-        style: this.modal ? "overflow: hidden" : ""
+    },
+    openModal() {
+      if (isIOS) {
+        this.scrollY = window.scrollY
+        this.modal = true
+        document.body.style.position = "fixed"
+        document.body.style.top = `${-this.scrollY}px`
+      } else {
+        this.modal = true
+        document.body.style.overflow = "hidden"
+      }
+    },
+    closeModal() {
+      if (isIOS) {
+        this.modal = false
+        document.body.style.position = ""
+        document.body.style.top = ""
+        window.scrollTo(0, this.scrollY)
+      } else {
+        this.modal = false
+        document.body.style.overflow = ""
       }
     }
   }

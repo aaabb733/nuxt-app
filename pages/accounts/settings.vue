@@ -40,7 +40,7 @@ export default {
                 await this.$auth.updateProfile(this.$store.state.user.identifier, this.$store.state.user.password, this.profile)
                 const user = await this.$auth.getMyUser(this.$store.state.user.identifier, this.$store.state.user.password)
                 this.$store.commit("setUser", user)
-                this.message = "Saved Profile"
+                this.message = "Saved profile"
             }
         }
     }
