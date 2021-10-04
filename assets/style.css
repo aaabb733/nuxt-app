@@ -2,15 +2,6 @@
     box-sizing: border-box;
 }
 
-html {
-    overflow: auto;
-}
-
-body {
-    margin: 0;
-    padding: 8px;
-}
-
 ul {
     list-style-type: none;
     padding: 0;
