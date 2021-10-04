@@ -23,17 +23,19 @@
   <button @click="$nuxt.refresh">Reload posts</button>
 
   <!-- Posts -->
-  <Posts @deletePost="dialog=true; $store.commit('setScroll', false)" :posts=posts display-username />
+  <Posts @deletePost="modal=true; deleteId = $event;" :posts=posts display-username />
 
   <!-- Post Form -->
   <PostForm />
 
-  <div v-if="dialog" @click.self="dialog=false; $store.commit('setScroll', true)" class="dialog">
-    <div class="dialog-content">
-      <strong>Really you want to delete the post?</strong>
+  <!-- Modal -->
+  <div v-if="modal" @click.self="modal=false;" class="modal">
+    <div class="modal-content">
+      <strong>Really you want to delete this post?</strong>
+      <Post style="margin: 1rem 0;" :post="posts.find(post => post._id === deleteId)" />
       <div>
-        <button @click="dialog=false; $store.commit('setScroll', true)">Cancel</button>
-        <button @click="dialog=false; $store.commit('setScroll', true)">OK</button>
+        <button @click="modal=false;">Cancel</button>
+        <button @click="modal=false; deletePost(deleteId)">OK</button>
       </div>
     </div>
   </div>
@@ -42,16 +44,16 @@
 </template>
 
 <style scoped>
-.dialog {
+.modal {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
   padding: 1rem 2rem;
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.3);
 }
-.dialog-content {
+.modal-content {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -67,7 +69,8 @@
 export default {
   data() {
     return {
-      dialog: false
+      modal: false,
+      deleteId: null,
     }
   },
   async asyncData({$posts}) {
@@ -84,6 +87,14 @@ export default {
     deletePost(_id) {
       this.$posts.deletePost(_id)
       this.$nuxt.refresh()
+    }
+  },
+  head() {
+    return {
+      title: "Home",
+      bodyAttrs: {
+        style: `overflow: ${this.modal ? 'hidden': ''}`
+      }
     }
   }
 }
