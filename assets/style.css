@@ -1,5 +1,19 @@
 * {
     box-sizing: border-box;
+    font-family:
+        system-ui,
+        -apple-system,
+        'Segoe UI',
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif,
+        'Apple Color Emoji',
+        'Segoe UI Emoji';
+}
+
+body {
+    margin: 0;
 }
 
 ul {
@@ -7,29 +21,11 @@ ul {
     padding: 0;
 }
 
-.border {
-    border: 1px solid black;
-}
-
-.border-y {
-    border-left-width: 0px;
-    border-right-width: 0px;
-}
-
-.divide-y > *+* {
-    border-top: 1px solid black;
-}
-
-textarea {
+input, textarea {
     width: 100%;
-    max-width: 50rem;
+    max-width: 640px;
 }
 
 label {
     font-weight: bold;
-}
-
-input {
-    width: 100%;
-    max-width: 640px;
 }

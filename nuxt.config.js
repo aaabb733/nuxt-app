@@ -26,7 +26,8 @@ export default {
   plugins: [
     "plugins/db.js",
     "plugins/auth.js",
-    "plugins/post.js"
+    "plugins/post.js",
+    "plugins/tools.js"
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

@@ -5,7 +5,7 @@
     </li>
 </ul>
 <p v-else>
-    there are no posts
+    There are no posts
 </p>
 </template>
 
