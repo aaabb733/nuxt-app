@@ -93,7 +93,7 @@ export default {
     return {
       title: "Home",
       bodyAttrs: {
-        style: `overflow: ${this.modal ? 'hidden': ''}`
+        style: this.modal ? "overflow: hidden" : ""
       }
     }
   }
