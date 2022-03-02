@@ -2,34 +2,34 @@
     <div>
         <ul>
             <li>
-                <nuxt-link to="/">Home</nuxt-link>
+                <nuxt-link to="/">ホーム</nuxt-link>
             </li>
         </ul>
 
         <!-- head -->
-        <h1>Let's Sign In</h1>
+        <h1>ログインしましょう</h1>
 
         <!-- signin form -->
         <form @submit.prevent="signIn">
             <div>
-                <label for="input-identifier">Email or username</label>
+                <label for="input-identifier">ユーザーネーム</label>
             </div>
             <div>
                 <input placeholder="email or username" v-model="identifier" type="text" name="identifier" id="input-identifier">
             </div>
             <div style="color: red;">{{identifierError}}</div>
             <div>
-                <label for="input-password">Password</label>
+                <label for="input-password">パスワード</label>
             </div>
             <div>
                 <input placeholder="password" v-model="password" type="password" name="password" id="input-password">
             </div>
             <div style="color: red;">{{passwordError}}</div>
             <div style="color: red;">{{signInError}}</div>
-            <button type="submit">Sign In</button>
+            <button type="submit">ログイン</button>
         </form>
-        <span>Don't have an account yet?</span>
-        <n-link to="/accounts/signup">Sign Up</n-link>
+        <span>まだアカウントを持っていませんか？</span>
+        <n-link to="/accounts/signup">アカウントを作成する</n-link>
     </div>
 </template>
 
@@ -48,12 +48,12 @@ export default {
         async signIn() {
             if (!this.identifier || !this.password) {
                 if (!this.identifier) {
-                    this.identifierError = "email or username is required"
+                    this.identifierError = "ユーザーネームを入力してください"
                 } else {
                     this.identifierError = ""
                 }
                 if (!this.password) {
-                    this.passwordError = "password is required"
+                    this.passwordError = "パスワードを入力してください"
                 } else {
                     this.passwordError = ""
                 }
@@ -66,7 +66,7 @@ export default {
                 localStorage.setItem("user", JSON.stringify(user))
                 this.$router.push("/")
             } else {
-                this.signInError = "email or username or password is invalid"
+                this.signInError = "ユーザーネームまたはパスワードが違います"
                 this.identifierError = ""
                 this.passwordError = ""
             }

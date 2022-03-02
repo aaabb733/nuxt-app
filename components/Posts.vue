@@ -5,7 +5,7 @@
     </li>
 </ul>
 <p v-else>
-    There are no posts
+    投稿がありません
 </p>
 </template>
 

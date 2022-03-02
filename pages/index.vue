@@ -2,16 +2,16 @@
 <div>
   <!-- Header Nav -->
   <ul>
-    <li><n-link to="/users">Users</n-link></li>
-    <li v-if="!user"><n-link to="accounts/login">Sign In</n-link></li>
-    <li v-if="!user"><n-link to="accounts/signup">Sign Up</n-link></li>
-    <li v-if="user"><n-link to="accounts/settings">Settings</n-link></li>
-    <li v-if="user"><button @click="$auth.signOut();">Sign Out</button></li>
+    <li><n-link to="/users">ユーザー</n-link></li>
+    <li v-if="!user"><n-link to="accounts/login">ログイン</n-link></li>
+    <li v-if="!user"><n-link to="accounts/signup">アカウントを作成</n-link></li>
+    <li v-if="user"><n-link to="accounts/settings">設定</n-link></li>
+    <li v-if="user"><button @click="$auth.signOut();">ログアウト</button></li>
   </ul>
 
   <!-- Head -->
   <h1>
-    <div>{{user ? user.identifier : "Let's Sign In"}}</div>
+    <div>{{user ? user.identifier : "ログインしましょう"}}</div>
   </h1>
 
   <!-- Profile -->
@@ -20,7 +20,7 @@
   </p>
 
   <!-- Realod Posts Button -->
-  <button @click="$nuxt.refresh">Reload posts</button>
+  <button @click="$nuxt.refresh">リロード</button>
 
   <!-- Posts -->
   <Posts @deletePost="openModal(); deleteId = $event;" :posts=posts display-username />
@@ -31,11 +31,11 @@
   <!-- Modal -->
   <div v-if="modal" @click.self="closeModal();" class="modal">
     <div class="modal-content">
-      <strong>Really you want to delete this post?</strong>
+      <strong>本当に削除しますか？</strong>
       <Post style="margin: 1rem 0;" :post="posts.find(post => post._id === deleteId)" />
       <div>
-        <button @click="closeModal();">Cancel</button>
-        <button @click="closeModal(); deletePost(deleteId)">OK</button>
+        <button @click="closeModal();">いいえ</button>
+        <button @click="closeModal(); deletePost(deleteId)">はい</button>
       </div>
     </div>
   </div>

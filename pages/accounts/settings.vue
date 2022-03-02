@@ -2,25 +2,25 @@
 <div>
     <ul>
         <li>
-            <n-link to="/">Home</n-link>
+            <n-link to="/">ホーム</n-link>
         </li>
     </ul>
-    <h1>Settings</h1>
+    <h1>設定</h1>
     <form @submit.prevent="saveSettings">
-        <div>
-            <label for="">Username</label>
+        <!-- <div>
+            <label for="">ユーザーネーム</label>
         </div>
         <div>
             <input type="text">
-        </div>
+        </div> -->
         <div>
-            <label for="input-profile">Profile</label>
+            <label for="input-profile">プロフィール</label>
         </div>
         <div>
             <textarea @keydown.ctrl.enter="saveSettings" v-model="profile" style="width: 100%; max-width: 40rem;" name="profile" id="input-profile" cols="30" rows="10"></textarea>
         </div>
-        <button type="submit">Save</button>
-        <button type="button" @click="profile=$store.state.user.profile">Reset</button>
+        <button type="submit">保存</button>
+        <button type="button" @click="profile=$store.state.user.profile">変更をリセット</button>
     </form>
     <Message @delete="message=''" v-if="message" :message="message" />
 </div>
@@ -40,7 +40,7 @@ export default {
                 await this.$auth.updateProfile(this.$store.state.user.identifier, this.$store.state.user.password, this.profile)
                 const user = await this.$auth.getMyUser(this.$store.state.user.identifier, this.$store.state.user.password)
                 this.$store.commit("setUser", user)
-                this.message = "Saved profile"
+                this.message = "変更を保存しました"
             }
         }
     }

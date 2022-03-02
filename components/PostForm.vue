@@ -1,12 +1,12 @@
 <template>
 <form @submit.prevent="post" v-if="$store.state.user">
     <div>
-        <label for="input-content">Post content</label>
+        <label for="input-content">投稿しよう</label>
     </div>
     <div>
         <textarea @keydown.ctrl.enter="post" v-model="content" name="content" id="input-content" cols="30" rows="10"></textarea>
     </div>
-    <button type="submit">Post</button>
+    <button type="submit">投稿する</button>
 </form>
 </template>
 

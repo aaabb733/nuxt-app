@@ -3,10 +3,10 @@
         <!-- Header nav -->
         <ul>
             <li>
-                <n-link to="/">Home</n-link>
+                <n-link to="/">ホーム</n-link>
             </li>
             <li>
-                <n-link to="/users">Users</n-link>
+                <n-link to="/users">ユーザー</n-link>
             </li>
         </ul>
         <h1>{{$route.params.username}}</h1>

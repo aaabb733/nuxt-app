@@ -2,34 +2,34 @@
     <div>
         <ul>
             <li>
-                <nuxt-link to="/">Home</nuxt-link>
+                <nuxt-link to="/">ホーム</nuxt-link>
             </li>
         </ul>
 
         <!-- head -->
-        <h1>Let's Sign Up!</h1>
+        <h1>アカウントを作成しましょう</h1>
         
         <!-- signup form -->
         <form @submit.prevent="signUp">
             <div>
-                <label for="input-identifier">Email or username</label>
+                <label for="input-identifier">ユーザーネーム</label>
             </div>
             <div>
                 <input placeholder="email or username" v-model="identifier" type="text" name="identifier" id="input-identifier">
             </div>
             <div style="color: red;">{{identifierError}}</div>
             <div>
-                <label for="input-password">Password</label>
+                <label for="input-password">パスワード</label>
             </div>
             <div>
                 <input placeholder="password" v-model="password" type="password" name="password" id="input-password">
             </div>
             <div style="color: red;">{{passwordError}}</div>
             <div style="color: red;">{{signUpError}}</div>
-            <button type="submit">Sign Up</button>
+            <button type="submit">アカウントを作成</button>
         </form>
-        <span>Already have an account?</span>
-        <n-link to="/accounts/login">Sign In</n-link>
+        <span>既にアカウントを持っていますか？</span>
+        <n-link to="/accounts/login">ログインする</n-link>
     </div>
 </template>
 
