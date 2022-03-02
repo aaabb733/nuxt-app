@@ -14,7 +14,7 @@
                 <p>{{user.profile || "プロフィールはありません"}}</p>
             </li>
         </ul>
-        <h1 v-else>There are no users</h1>
+        <h1 v-else>ユーザーがいません</h1>
     </div>
 </template>
 
