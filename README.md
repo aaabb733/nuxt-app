@@ -1,5 +1,7 @@
 # nuxt-no-vuetify
 
+## Vue, Nuxt, IndexedDBを用いた掲示板アプリです
+
 ## Build Setup
 
 ```bash
