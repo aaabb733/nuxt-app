@@ -15,14 +15,14 @@
                 <label for="input-identifier">ユーザーネーム</label>
             </div>
             <div>
-                <input placeholder="email or username" v-model="identifier" type="text" name="identifier" id="input-identifier">
+                <input placeholder="ユーザーネーム" v-model="identifier" type="text" name="identifier" id="input-identifier">
             </div>
             <div style="color: red;">{{identifierError}}</div>
             <div>
                 <label for="input-password">パスワード</label>
             </div>
             <div>
-                <input placeholder="password" v-model="password" type="password" name="password" id="input-password">
+                <input placeholder="パスワード" v-model="password" type="password" name="password" id="input-password">
             </div>
             <div style="color: red;">{{passwordError}}</div>
             <div style="color: red;">{{signUpError}}</div>
